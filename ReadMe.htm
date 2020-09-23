@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Jumble Solver - Usage and Programming Notes</title>
+<style fprolloverstyle>A:hover {color: #FF0000}
+</style>
+</head>
+
+<body>
+
+<h2><u><font face="Arial">Jumble Solver</font></u></h2>
+<p><b><font face="Arial">Programming Notes and program usage</font></b></p>
+<p><font face="Arial">This page contains...</font></p>
+<p><a href="#Intro"><font face="Arial">Introduction</font></a></p>
+<p><a href="#HowItWorks"><font face="Arial">How It Works</font></a></p>
+<p><a href="#Problems"><font face="Arial">Problems That I am Facing</font></a></p>
+<hr>
+<p><font face="Arial">Thanx for downloading this program. If you have any questions, suggestions, problems, or my program do not work at all,<br>
+please do mail me at:<a href="mailto:Shekhar_Extreme@yahoo.com"><br>
+Shekhar_Extreme@yahoo.com</a>&nbsp; <a href="mailto:-or-Shekhar_d_s@yahoo.com">-or-<br>
+Shekhar_d_s@yahoo.com</a></font></p>
+<hr>
+<h3><u><font face="Arial"><a name="Intro"></a>Introduction</font></u></h3>
+<p><font face="Arial">&nbsp;&nbsp;&nbsp; Jumble Solver works on a very simple
+concept, it creates all possible permutations (words) from the jumble and spell
+check each of them, if there is a correct one, that's the solution. For this,
+Jumble Solver by itself creates all possible permutations and then compares it
+with Excel's dictionary, the first option 'Solve Jumble' does that... no doubt,
+this way is much lengthy, but there is not other method I could think of.
+Another way is to show a list of all permutations, this way is much more slow
+than the pervious.</font></p>
+<hr>
+<h3><u><font face="Arial"><a name="HowItWorks"></a>How it works</font></u></h3>
+<p><font face="Arial">&nbsp;&nbsp;&nbsp; There are two tasks we need to perform:</font></p>
+<ol>
+  <li><a href="#CreateAll"><font face="Arial">Create all possible words
+    (permutations) from the jumble</font></a></li>
+  <li><a href="#FindWord"><font face="Arial">Find the correct word</font></a></li>
+</ol>
+<p><font face="Arial"><a name="CreateAll"></a><b>Create all possible
+permutations from the jumble</b></font></p>
+<p><font face="Arial">&nbsp;&nbsp;&nbsp;<b> </b>There are two ways to create all
+possible permutations - one is Recursive and another is Lexicographic. First, as
+the name suggests, requires Recursive calling, while another does in the same
+function call. In my project, there are two different modules containing
+functions of these. Out of which only one is added to actual project. These
+functions are not mine, I've downloaded it, but I don't have actual author's
+name.</font></p>
+<p><b><font face="Arial"><a name="FindWord"></a>Find the correct word</font></b></p>
+<p><font face="Arial">To find the correct word, we need a dictionary built into
+the program, but that I think it is too tough to implement. So I've thought of
+another idea, both Office 97 and Office 2000 comes with their own object
+library, which can be used in VB to customize and use Office applications from
+VB programs. The object library contains functions like SpellCheck which perform
+these job.</font></p>
+<p><font face="Arial">8 But these solution is temporary, because it do not make
+our program a complete application, to use Jumble Solver, a correct version of
+Office (and Excel) must be properly installed on the system, which I think makes
+the program very much less usability. I request that if you can give me a
+solution of this please do. There can be spell check DLL or library, or at least
+a dictionary file, which can make this program really usable. If you can, please
+reply me: </font><a href="mailto:shekhar_extreme@yahoo.com"><font face="Arial">shekhar_extreme@yahoo.com</font></a></p>
+<hr>
+<h3><u><font face="Arial"><a name="Problems"></a>Problems that I am facing</font></u></h3>
+<p><b><font face="Arial">Problem 1</font></b></p>
+<p><font face="Arial">In first method, long words takes too much time to
+process, because each and every possible words are needed to be checked.</font></p>
+<p><font face="Arial">To find the correct word, we need a dictionary built into
+the program, but that I think it is too tough to implement. So I've thought of
+another idea, both Office 97 and Office 2000 comes with their own object
+library, which can be used in VB to customize and use Office applications from
+VB programs. The object library contains functions like SpellCheck which perform
+these job.</font></p>
+<p><font face="Arial">8 But these solution is temporary, because it do not make
+our program a complete application, to use Jumble Solver, a correct version of
+Office (and Excel) must be properly installed on the system, which I think makes
+the program very much less usability. I request that if you can give me a
+solution of this please do. There can be spell check DLL or library, or at least
+a dictionary file, which can make this program really usable. If you can, please
+reply me: <a href="mailto:shekhar_extreme@yahoo.com">shekhar_extreme@yahoo.com</a></font></p>
+<p><b><font face="Arial">Problem 2</font></b></p>
+<p><font face="Arial">The second option 'List Permutations' gives the user a
+list of all possible permutations, but I found <b>a limitation of VB </b>while
+doing this, VB's intrinsic ListBox control supports only 32767 entries, if we
+add more, a runtime error is generated. As a solution, I also tried with
+ListView control, which do not have any said limitations. I checked both COMCTL
+and MSCOMCTL (IE update) version s of the control, it allows more entries, but
+it brings the program down while viewing or even clearing the list.</font></p>
+<p><font face="Arial">Temporarily, I've given a way of page by page view, but I
+don't like it much, let's discuss more on the problem...</font></p>
+<p><font face="Arial">The reason for second problem is obvious, think how much
+memory we will need... for a jumble of 10 letters: It will create 10! =
+36,28,800 entries, to store it anywhere... in a ListBox, TextBox, or physical
+File even, it will need 3628800*10characters = 362,88,000 bytes = 34MB. And
+think what happens if we go for 11 character jumble:</font></p>
+<p><font face="Arial">11! = 399,16,800 total permutations</font></p>
+<p><font face="Arial">39916800*11characters = 43,90,84,800 Bytes = <b>418 MB</b></font></p>
+<p><font face="Arial">Now, as the upper calculation shows, we need either
+unlimited storage space, which I think is not at all a practical way, to solve a
+dame jumble who will give away megabytes of memory and hours of time ?? or
+another way is to think of a whole new logic, which do not need much storage
+space... even, more time can be given, but this much memory? that's not the way
+it should be.</font></p>
+<p><font face="Arial">If you can get a solution to this, need more discussion,
+or have anything that can be added, repaired of removed, please do mail me: </font><a href="mailto:shekhar_extreme@yahoo.com"><font face="Arial">shekhar_extreme@yahoo.com</font></a></p>
+<hr>
+
+</body>
+
+</html>
